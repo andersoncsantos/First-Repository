@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+</head>
+
+
+<body>
+    <select id="operacao">
+        <option value="soma">Soma</option>
+        <option value="subtracao">Subtração</option>
+        <option value="multiplicacao">Multiplicação</option>
+        <option value="divisao">Divisão</option>
+    </select>
+    <br>
+    <br>
+    <input type="number" id="v1" placeholder="Primeiro valor">
+    <br>
+    <br>
+    <input type="number" id="v2" placeholder="Segundo valor">
+    <br>
+    <br>
+    <button onclick="teste()">Calcular</button>
+    <button onclick="limpar()">Limpar</button>
+    <br>
+    <br>
+
+    <strong id="result"></strong>
+
+    <script>
+        function teste() {
+
+            var a = parseFloat(document.getElementById("v1").value);
+            var b = parseFloat(document.getElementById("v2").value);
+
+            if (document.getElementById("operacao").value == "soma") {
+                var c = a + b;
+            }
+            if (document.getElementById("operacao").value == "subtracao") {
+                var c = a - b;
+            }
+            if (document.getElementById("operacao").value == "multiplicacao") {
+                var c = a * b;
+            }
+            if (document.getElementById("operacao").value == "divisao") {
+                var c = a / b;
+            }
+
+            document.getElementById("result").innerHTML = "Resultado: " + c;
+
+        }
+    </script>
+
+    <script>
+        function limpar() {
+            document.getElementById("v1").value = "";
+            document.getElementById("v2").value = "";
+            document.getElementById("result").innerHTML = "";
+
+        }
+    </script>
+
+</body>
+
+</html>
