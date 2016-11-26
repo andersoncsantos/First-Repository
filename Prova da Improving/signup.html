@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Cadastro</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="CSS/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a id="navTitle" class="navbar-brand" href="signup.html"></a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid">
+        <div class="form-inline">
+
+            <form action="http://www.improving.com.br/api/test/users" method="post">
+                <div class="form-group">
+                    <label for="email">Email</label><br>
+                    <input type="text" class="form-control" id="email" placeholder="Email" size="30">
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Senha</label><br>
+                    <input type="password" class="form-control" id="password" placeholder="Senha">
+                </div>
+
+                <div class="form-group">
+                    <label for="passwordConfirmation">Repita a Senha</label><br>
+                    <input type="password" class="form-control" id="passwordConfirmation" placeholder="Repita a senha">
+                </div>
+
+                <br><br>
+                <div class="form-group">
+                    <label for="fullName">Nome Completo</label><br>
+                    <input type="text" class="form-control" id="fullName" placeholder="Nome Completo" size="40">
+                </div>
+
+                <div class="form-group">
+                    <label for="birthDate">Data de Nascimento</label><br>
+                    <input type="date" class="form-control" id="birthDate" placeholder="Data de Nascimento">
+                </div>
+
+                <br><br>
+                <div class="form-group">
+                    <label for="zipCode">CEP</label><br>
+                    <input type="text" class="form-control" id="zipCode" placeholder="CEP" onkeypress="mascara(this, '#####-###')" maxlength="9">
+                </div>
+
+                <div class="form-group">
+                    <label for="streetName">Rua</label><br>
+                    <input type="text" class="form-control" id="streetName" placeholder="Rua" size="40">
+                </div>
+
+                <div class="form-group">
+                    <label for="number">Número</label><br>
+                    <input type="text" class="form-control" id="number" placeholder="Número" size="5">
+                </div>
+                <div class="form-group">
+                    <label for="complement">Complemento</label><br>
+                    <input type="text" class="form-control" id="complement" placeholder="Complemento">
+                </div>
+                <br><br>
+                <div class="form-group">
+                    <label for="neighbourbood">Bairro</label><br>
+                    <input type="text" class="form-control" id="neighbourbood" placeholder="Bairro">
+                </div>
+
+                <div class="form-group">
+                    <label for="country">País</label><br>
+                    <select class="form-control" name="countrySelectBox">
+                    <option value="BR">Brasil</option>
+                    <option value="CL">Chile</option>
+                    <option value="CO">Colombia</option>
+                    <option value="CR">Costa Rica</option>
+                    <option value="CU">Cuba</option>
+                    <option value="EC">Equador</option>
+                    <option value="FR">França</option>
+                    <option value="GF">Guiana Francesa</option>
+                    <option value="GT">Guatemala</option>
+                    <option value="HT">Haiti</option>
+                    <option value="IT">Itália</option>
+                    <option value="JM">Jamaica</option>
+                    <option value="MX">México</option>
+                    <option value="NI">Niquarágua</option>
+                    <option value="PA">Panamá</option>
+                    <option value="PE">Peru</option>
+                    <option value="PR">Porto Rico</option>
+                    <option value="PY">Paraguai</option>
+                    <option value="SV">El Salvador</option>
+                    <option value="US">Estados Unidos</option>
+                    <option value="UY">Uruguai</option>
+                    <option value="VE">Venezuela</option>
+           
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="state">Estado</label><br>
+                    <input type="text" class="form-control" id="state" placeholder="Estado">
+                </div>
+
+                <div class="form-group">
+                    <label for="city">Cidade</label><br>
+                    <input type="text" class="form-control" id="city" placeholder="Cidade">
+                </div>
+                <br><br>
+                <button type="submit" class="btn btn-primary" id="mostrarForm" onclick="cadastrarPessoas()">Enviar</button>
+            </form>
+
+
+            <script src="js/Config.js"></script>
+            <script src="js/Main.js"></script>
+
+
+</body>
+
+</html>
