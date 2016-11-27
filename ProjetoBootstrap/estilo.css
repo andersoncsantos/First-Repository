@@ -1,0 +1,16 @@
+.marcador {
+    color: oldlace;
+    background: dimgray;
+    border: 1px solid #000;
+}
+
+#marcador {
+    color: oldlace;
+    background: #2E2E2E;
+}
+
+.marcador2 {
+    color: oldlace;
+    background: tomato;
+    border: 1px solid #000;
+}
