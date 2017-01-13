@@ -106,11 +106,13 @@
 						}
 
 						header("Location: inscrevase.php?".$retorno_get);
-					}
+						
+						die();
+					  }
+					
 
-
 					}
-					die();
+					
 
                     $sql = "INSERT INTO usuarios(usuario, email, senha)VALUES('$usuario', '$email', '$senha')";
 

@@ -20,7 +20,7 @@
     if($resultado_id){
         while ($tweet = mysqli_fetch_array($resultado_id)){
             echo '<a href="#" class="list-group-item">';
-            echo '<h4 class="list-group-item-heading">'.$tweet['usuario'].'<small> - '.$tweet['data_inclusao_formatada'].'</small></h4>' ;
+            echo '<h5 class="list-group-item-heading">'.$tweet['usuario'].'<small> - '.$tweet['data_inclusao_formatada'].'</small></h5>' ;
             echo '<p class="list-group-item-text">'.$tweet['tweet'].'</p>';
             echo '</a>';
         }

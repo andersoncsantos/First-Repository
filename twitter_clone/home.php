@@ -12,6 +12,8 @@
 
 	$id_usuario = $_SESSION['id_usuario'];
 
+	
+	
 	//query - quantidade de tweets
 	$sql = " SELECT COUNT(*) AS qtde_tweets FROM tweet WHERE id_usuario = $id_usuario ";
 
@@ -24,6 +26,8 @@
 	//retorno da consulta de acordo com os parâmetros passados na variável $sql
 	$qtde_tweets = mysqli_fetch_array($resultado_id);
 
+	
+	
 	//query - quantidade de seguidores
 	$sql = " SELECT COUNT(*) AS qtde_seguidores FROM usuarios_seguidores WHERE seguindo_id_usuario = $id_usuario ";
 
@@ -35,6 +39,20 @@
 
 	//retorno da consulta de acordo com os parâmetros passados na variável $sql
 	$qtde_seguidores = mysqli_fetch_array($resultado_id);
+
+
+	
+	//query - quantidade de usuarios que estou seguindo
+	$sql = " SELECT COUNT(*) AS qtde_seguindo FROM usuarios_seguidores WHERE id_usuario = $id_usuario ";
+
+	//conexão com o banco
+	$link = $objBd->conecta_mysql();
+
+	//consulta ao banco
+    $resultado_id = mysqli_query($link, $sql);
+
+	//retorno da consulta de acordo com os parâmetros passados na variável $sql
+	$qtde_seguindo = mysqli_fetch_array($resultado_id);
 	
 ?>
 
@@ -70,10 +88,12 @@
 							success: function(data){
 								$('#txt_tweet').val('');
 								atualizaTweets();
+								location.reload();
 
 							}
 						})
 					}
+					
 				})
 
 				function atualizaTweets(){
@@ -84,10 +104,12 @@
 						url: 'get_tweet.php',
 						method: 'post',
 						
+						// insere os tweets na div  id = tweets
 						success: function(data){
 							$('#tweets').html(data);
 
 						}
+						
 					})
 
 				}
@@ -128,16 +150,25 @@
 
 	    	<div class="col-md-3">
 					<div class="panel panel-default">
-					<div class="panel-body">
-						<h4><?= $_SESSION['usuario']?></h4>
+						<div class="panel-body">
+						<font size="4px"><?= $_SESSION['usuario']?></font><br>
+						<small><font color="#66757f"><?= $_SESSION['email']?></font></small>
 						<hr>
-						<div class="col-md-6">
-							TWEETS<br>
-							<?=$qtde_tweets['qtde_tweets']?>
+						
+						<div class="row">
+						<div class="col-md-3" >
+							<font size="1px" color="#8899a6">TWEETS</font><br>
+							<font size="4px" color="#2FC2EF"><?=$qtde_tweets['qtde_tweets']?></font>
+						</div>
+						<div class="col-md-3" >
+							<font size="1px" color="#8899a6">SEGUINDO</font><br>
+							<font size="4px" color="2FC2EF"><?=$qtde_seguindo['qtde_seguindo']?></font>
 						</div>
 						<div class="col-md-6">
-							SEGUIDORES<br>
-							<?=$qtde_seguidores['qtde_seguidores']?>
+							<font size="1px" color="#8899a6">SEGUIDORES</font><br>
+							<font size="4px" color="2FC2EF"><?=$qtde_seguidores['qtde_seguidores']?></font>
+						
+						</div>
 						</div>
 					</div>
 				</div>
@@ -164,20 +195,15 @@
 				</div>
 				
 					<div class="col-md-3">
-						<div class="panel panel-default">
-							<div class="panel-body">
-								<h4><a href="procurar_pessoas.php">Procurar por pessoas</a> </h4>
+						<a href="procurar_pessoas.php" >
+						<div class="btn-group btn-group-justified" role="group">
+							<div class="btn-group" role="group">
+								<button type="button" class="btn btn-info">Procurar</button>
 							</div>
-						</div>
+						</div>					
 					</div>
 
 			<div class="clearfix"></div>
-			
-
-		</div>
-
-
-	    </div>
 	
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
 	

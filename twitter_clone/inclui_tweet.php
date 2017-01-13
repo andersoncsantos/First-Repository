@@ -18,7 +18,7 @@
 
     $link = $objBd->conecta_mysql();
 
-     $resultado_id = mysqli_query($link, $sql);
+    $resultado_id = mysqli_query($link, $sql);
 
    
 
